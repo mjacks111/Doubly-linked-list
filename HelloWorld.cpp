@@ -33,7 +33,7 @@ public:
 		return m_pBegin;
 	}
 
-	void setBegin(Element* node)
+	void setBegin(Element* node) // ability to change our member variable since it is private
 	{
 		m_pBegin = node;
 	}
@@ -43,7 +43,7 @@ public:
 		return m_pEnd;
 	}
 
-	void setEnd(Element* node)
+	void setEnd(Element* node) // abillity to change the ending member variable, as its private
 	{
 		m_pEnd = node;
 	}
@@ -83,7 +83,7 @@ public:
 		return counter;
 	}
 
-	Element* pushFront(float value)
+	Element* pushFront(float value) // pushing an element to the front of the list
 	{
 		if (isEmpty())
 		{
@@ -108,7 +108,7 @@ public:
 		}
 	}
 
-	Element* insert(Element* insertAfter, float value)
+	Element* insert(Element* insertAfter, float value) //inserting where you would like fom a certain elemnt
 	{
 		if (isEmpty() == true)
 		{
@@ -123,7 +123,7 @@ public:
 		}
 	}
 
-	Element* pushBack(float value)
+	Element* pushBack(float value) //pushing to the end of the list.
 	{
 		if (isEmpty() == true)
 		{
@@ -143,7 +143,7 @@ public:
 		}
 	}
 
-	Element* Find(Element* it, float value)
+	Element* Find(Element* it, float value) // finding an element, and returning the pointer of the element.
 	{
 		while (it != NULL)
 		{
@@ -160,7 +160,7 @@ public:
 	}
 };
 
-		int main()
+		int main()  // maniupulation to see how it works.
 		{
 			dLinked_List d;
 			d.pushFront(10);
@@ -176,23 +176,3 @@ public:
 			cout << "NULL";
 			return 0;
 		}
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-
-
