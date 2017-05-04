@@ -110,57 +110,57 @@ public:
 
 	Element* insert(Element* insertAfter, float value) //inserting where you would like fom a certain elemnt
 	{
-		if (isEmpty() == true)
+		if (isEmpty() == true)                     //if the linked list is empty, simply push the value in
 		{
 			return pushFront(value);
 		}
 		else
 		{
-			Element* nextt = insertAfter->next;
-			Element* newElement = new Element{ value, insertAfter->next, insertAfter };
-			insertAfter->next = newElement;
-			nextt->previous = newElement;
+			Element* nextt = insertAfter->next;         //make an element pointer "nextt" to the given position's next
+			Element* newElement = new Element{ value, insertAfter->next, insertAfter };  // making a new element, with given value, with next being "insertAfter->next", and previous just being "insertafter"
+			insertAfter->next = newElement;              // make the insert after point to the new element made
+			nextt->previous = newElement;                // previous of the new element be newElement
 		}
 	}
 
 	Element* pushBack(float value) //pushing to the end of the list.
 	{
-		if (isEmpty() == true)
+		if (isEmpty() == true)               //if empty we pushfront the value
 		{
 			return pushFront(value);
 		}
 		else
 		{
-			Element* endNode = m_pEnd;
-			Element* newElement = new Element;
-			endNode->next = newElement;
-			newElement->previous = endNode;
-			newElement->next = NULL;
-			newElement->value = value;
-			m_pEnd = newElement;
-			return newElement;
+			Element* endNode = m_pEnd;        //have a node point to the end of the list
+			Element* newElement = new Element;   //new element being created
+			endNode->next = newElement;           //after the end node, we want the new element
+			newElement->previous = endNode;        // the new element inserted must previously point to the old "endNode"
+			newElement->next = NULL;               // the newElement is at the end so it points to NULL
+			newElement->value = value;             // the newElement has the given value from the argument
+			m_pEnd = newElement;                   // have the end pointer point, to the new element as its the end element.
+			return newElement;                     // return this value for use if need be
 
 		}
 	}
 
 	Element* Find(Element* it, float value) // finding an element, and returning the pointer of the element.
 	{
-		while (it != NULL)
+		while (it != NULL)      //have an iterator that moves foward while not pointing to nothing
 		{
-			if (it->value == value)
+			if (it->value == value)  //if the iterator has the same value as the given argument, we return this value
 			{
 				return it;
 			}
-			else
+			else                       //if not we advance the iterator 
 			{
 				it = it->next;
 			}
 		}
-		return NULL;
+		return NULL;                     //if it is never found we return NULL
 	}
 };
 
-		int main()  // maniupulation to see how it works.
+		int main()  // manipulation to see how it works.
 		{
 			dLinked_List d;
 			d.pushFront(10);
